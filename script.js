@@ -43,34 +43,33 @@ const gameDraw = () => {
   msg.innerText = `Game was a Draw.`;
   msgContainer.classList.remove("hide");
   disableBtns();
+  // count = 0;
 };
 
-
-
-newGameBtn.addEventListener('click', ()=>{
+newGameBtn.addEventListener("click", () => {
   msgContainer.classList.add("hide");
+  count = 0;
   enableBtns();
-})
-
+});
 
 const disableBtns = () => {
-    for (let btn of btns) {
-      btn.disabled = true;
-    };
-}
+  for (let btn of btns) {
+    btn.disabled = true;
+  }
+};
 
-const enableBtns = () =>{
-    for (let btn of btns) {
-      btn.disabled = false;
-      btn.innerText = "";
-    }
-}
+const enableBtns = () => {
+  for (let btn of btns) {
+    btn.disabled = false;
+    btn.innerText = "";
+  }
+};
 
-const showWinner = (winner) =>{
+const showWinner = (winner) => {
   msg.innerText = `Congratulations, Winner is ${winner}`;
   msgContainer.classList.remove("hide");
   disableBtns();
-}
+};
 
 const checkWinner = () => {
   for (let pattern of winPatterns) {
@@ -79,11 +78,11 @@ const checkWinner = () => {
     let pos3 = btns[pattern[2]].innerText;
 
     if (pos1 != "" && pos2 != "" && pos3 != "") {
-        if (pos1 === pos2 && pos2 === pos3) {
-            // console.log("winner", pos1);
-            showWinner(pos1);
-            return true;
-        }
+      if (pos1 === pos2 && pos2 === pos3) {
+        // console.log("winner", pos1);
+        showWinner(pos1);
+        return true;
+      }
     }
   }
 };
